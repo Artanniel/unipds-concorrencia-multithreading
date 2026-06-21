@@ -83,7 +83,7 @@ Demonstra o uso de `Executors.newFixedThreadPool(n)` para executar tarefas que c
 - Submissão de tarefas via `executor.submit()`
 - Coleta de resultados com `Future<Long>`
 
-![Aula02-Ex01](./src/main/resources/img/Aula02-Ex01.png)
+![Aula02-Ex01](app/src/main/resources/img/Aula02-Ex01.png)
 
 ---
 
@@ -98,7 +98,7 @@ Demonstra o uso de `Executors.newVirtualThreadPerTaskExecutor()` (Java 21+) para
 - `newVirtualThreadPerTaskExecutor()`
 - Escalabilidade em cenários de alta concorrência I/O
 
-![Aula02-Ex02](./src/main/resources/img/Aula02-Ex02.gif)
+![Aula02-Ex02](app/src/main/resources/img/Aula02-Ex02.gif)
 
 ---
 
@@ -116,7 +116,7 @@ Demonstra três formas de agendamento com `Executors.newScheduledThreadPool(n)`:
 
 A diferença crucial entre `AtFixedRate` e `WithFixedDelay` fica evidente quando a tarefa demora mais que o intervalo configurado.
 
-![Aula02-Ex03](./src/main/resources/img/Aula02-Ex03.gif)
+![Aula02-Ex03](app/src/main/resources/img/Aula02-Ex03.gif)
 
 ---
 
@@ -134,7 +134,7 @@ Demonstra as duas formas de encerrar um `ExecutorService` corretamente:
 - `awaitTermination()` para drenagem graciosa
 - `AutoCloseable` em `ExecutorService`
 
-![Aula02-Ex04](./src/main/resources/img/Aula02-Ex04.png)
+![Aula02-Ex04](app/src/main/resources/img/Aula02-Ex04.png)
 
 ---
 
@@ -152,7 +152,7 @@ Compara o desempenho de `Collections.synchronizedMap(new HashMap<>())` com `Conc
 
 **Resultado esperado:** `ConcurrentHashMap` é significativamente mais rápido em cenários com muitas threads.
 
-![Aula03-Ex01](./src/main/resources/img/Aula03-Ex01.png)
+![Aula03-Ex01](app/src/main/resources/img/Aula03-Ex01.png)
 
 ---
 
@@ -167,7 +167,7 @@ Demonstra o uso de `CopyOnWriteArrayList` no padrão Observer/Listener. Quando u
 - Segurança de iteração concorrente
 - Trade-off: ideal para cenários de leitura intensa, custoso para escritas frequentes
 
-![Aula03-Ex02](./src/main/resources/img/Aula03-Ex02.png)
+![Aula03-Ex02](app/src/main/resources/img/Aula03-Ex02.png)
 
 ---
 
@@ -182,7 +182,7 @@ Implementa o clássico padrão Produtor-Consumidor usando `ArrayBlockingQueue` c
 - `put()` e `take()` como mecanismo de sincronização implícita
 - Virtual Threads + BlockingQueue como padrão moderno
 
-![Aula03-Ex03](./src/main/resources/img/Aula03-Ex03.gif)
+![Aula03-Ex03](app/src/main/resources/img/Aula03-Ex03.gif)
 
 ---
 
@@ -202,7 +202,7 @@ Simula a inicialização paralela de três serviços (`DatabaseService`, `CacheS
 - `CountDownLatch` como barreira de espera one-shot
 - `await()` bloqueante vs `await(timeout, unit)` com timeout
 
-![Aula04-Ex01](./src/main/resources/img/Aula04-Ex01.png)
+![Aula04-Ex01](app/src/main/resources/img/Aula04-Ex01.png)
 
 ---
 
@@ -217,7 +217,7 @@ Demonstra o `CyclicBarrier` com 3 workers executando em duas fases. Cada worker 
 - Ação da barreira (`barrierAction`) executada na última thread a chegar
 - Diferença fundamental entre `CyclicBarrier` e `CountDownLatch`
 
-![Aula04-Ex02](./src/main/resources/img/Aula04-Ex02.png)
+![Aula04-Ex02](app/src/main/resources/img/Aula04-Ex02.png)
 
 ---
 
@@ -232,7 +232,7 @@ Simula um pool de conexões com limite de 3 conexões simultâneas usando `Semap
 - Semáforo justo (fair) vs não-justo
 - Uso obrigatório de `release()` em bloco `finally`
 
-![Aula04-Ex03](./src/main/resources/img/Aula04-Ex03.png)
+![Aula04-Ex03](app/src/main/resources/img/Aula04-Ex03.png)
 
 ---
 
@@ -247,7 +247,7 @@ Demonstra o `Phaser`, o sincronizador mais flexível da API. Diferente do `Cycli
 - `arriveAndAwaitAdvance()` vs `arriveAndDeregister()`
 - `Phaser` como generalização de `CountDownLatch` + `CyclicBarrier`
 
-![Aula04-Ex04](./src/main/resources/img/Aula04-Ex04.png)
+![Aula04-Ex04](app/src/main/resources/img/Aula04-Ex04.png)
 
 ---
 
@@ -268,7 +268,7 @@ Implementa a soma de 1 milhão de números usando `RecursiveTask<Long>`. A taref
 - Estratégia `fork() + compute() + join()` vs `invokeAll()`
 - Work-stealing scheduler
 
-![Aula05-Ex01](./src/main/resources/img/Aula05-Ex01.png)
+![Aula05-Ex01](app/src/main/resources/img/Aula05-Ex01.png)
 
 ---
 
@@ -283,7 +283,7 @@ Compara o uso do `ForkJoinPool.commonPool()` (pool compartilhado da JVM, usado i
 - Criação de `ForkJoinPool` com paralelismo customizado
 - `try-with-resources` para fechar pools customizados
 
-![Aula05-Ex02](./src/main/resources/img/Aula05-Ex02.png)
+![Aula05-Ex02](app/src/main/resources/img/Aula05-Ex02.png)
 
 ---
 
@@ -306,7 +306,7 @@ Demonstra a diferença crucial entre os dois operadores de transformação:
 
 Usar `thenApply` com uma função que retorna `CompletableFuture` resulta em `CompletableFuture<CompletableFuture<T>>` — um tipo aninhado indesejado. `thenCompose` "achata" o resultado automaticamente.
 
-![Aula06-Ex01](./src/main/resources/img/Aula06-Ex01.png)
+![Aula06-Ex01](app/src/main/resources/img/Aula06-Ex01.png)
 
 ---
 
@@ -320,7 +320,7 @@ Demonstra como executar duas operações assíncronas **em paralelo** e combinar
 - `thenCombine()` para combinar duas futures independentes
 - Execução paralela implícita de futures
 
-![Aula06-Ex02](./src/main/resources/img/Aula06-Ex02.png)
+![Aula06-Ex02](app/src/main/resources/img/Aula06-Ex02.png)
 
 ---
 
@@ -335,7 +335,7 @@ Demonstra o uso de `CompletableFuture.allOf()` para aguardar a conclusão de N f
 - Padrão correto para coletar resultados após `allOf`
 - `anyOf()` como alternativa (retorna o primeiro a concluir)
 
-![Aula06-Ex03](./src/main/resources/img/Aula06-Ex03.png)
+![Aula06-Ex03](app/src/main/resources/img/Aula06-Ex03.png)
 
 ---
 
@@ -350,7 +350,7 @@ Demonstra os dois principais operadores de tratamento de erros em `CompletableFu
 | `exceptionally(fn)` | `catch` | Só é chamado em caso de exceção; fornece valor de fallback |
 | `handle(fn)` | `finally` com retorno | Sempre é chamado; recebe resultado ou exceção (um deles será null) |
 
-![Aula06-Ex04](./src/main/resources/img/Aula06-Ex04.png)
+![Aula06-Ex04](app/src/main/resources/img/Aula06-Ex04.png)
 
 ---
 
@@ -370,7 +370,7 @@ Encontra a soma dos quadrados de todos os números primos até 10 milhões, comp
 - Quando `parallelStream()` melhora performance
 - Critérios: CPU-bound + stateless + fonte divisível
 
-![Aula07-Ex01](./src/main/resources/img/Aula07-Ex01.png)
+![Aula07-Ex01](app/src/main/resources/img/Aula07-Ex01.png)
 
 ---
 
@@ -382,7 +382,7 @@ Demonstra por que `parallelStream()` é **inadequado** para operações I/O-boun
 
 **Lição:** Para I/O-bound, use Virtual Threads. `parallelStream()` é para CPU.
 
-![Aula07-Ex02](./src/main/resources/img/Aula07-Ex02.png)
+![Aula07-Ex02](app/src/main/resources/img/Aula07-Ex02.png)
 
 ---
 
@@ -394,7 +394,7 @@ Demonstra a condição de corrida clássica ao usar `parallelStream()` com `Arra
 
 **Lição:** Nunca use `forEach` + coleção mutável em streams paralelos. Use sempre coletores.
 
-![Aula07-Ex03](./src/main/resources/img/Aula07-Ex03.png)
+![Aula07-Ex03](app/src/main/resources/img/Aula07-Ex03.png)
 
 ---
 
@@ -412,7 +412,7 @@ Processa 200.000 requisições simultâneas — cada uma simulando 1 segundo de 
 
 **Resultado esperado:** ~1-2 segundos para processar 200.000 tarefas de 1s cada.
 
-![Aula08-Ex01](./src/main/resources/img/Aula08-Ex01.png)
+![Aula08-Ex01](app/src/main/resources/img/Aula08-Ex01.png)
 
 ---
 
